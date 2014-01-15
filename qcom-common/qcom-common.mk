@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/sony/qcom-common
+COMMON_PATH := device/pantech/qcom-common
 
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
@@ -104,6 +104,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
 # Include non-opensource parts
-$(call inherit-product, vendor/sony/qcom-common/qcom-common-vendor.mk)
+$(call inherit-product, vendor/pantech/qcom-common/qcom-common-vendor.mk)
 endif
 endif

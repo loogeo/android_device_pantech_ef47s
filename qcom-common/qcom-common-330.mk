@@ -14,7 +14,7 @@
 
 USE_ADRENO_330 := true
 
-$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
+$(call inherit-product, device/pantech/qcom-common/qcom-common.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=c2d
@@ -24,4 +24,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
 # Include non-opensource parts
-$(call inherit-product, vendor/sony/qcom-common/qcom-common-vendor-330.mk)
+$(call inherit-product, vendor/pantech/qcom-common/qcom-common-vendor-330.mk)

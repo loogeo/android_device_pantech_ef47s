@@ -15,9 +15,9 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # qcom common
-$(call inherit-product, device/sony/qcom-common/qcom-common-42.mk)
+$(call inherit-product, device/pantech/qcom-common/qcom-common-42.mk)
 
-COMMON_PATH := device/sony/blue-common
+COMMON_PATH := device/pantech/blue-common
 
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
     $(COMMON_PATH)/rootdir/fstab.qcom:recovery/root/fstab.qcom \
     $(COMMON_PATH)/rootdir/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
-    $(COMMON_PATH)/rootdir/system/etc/init.sony.bt.sh:system/etc/init.sony.bt.sh \
+    $(COMMON_PATH)/rootdir/system/etc/init.pantech.bt.sh:system/etc/init.pantech.bt.sh \
     $(COMMON_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # Key and touchscreen files
@@ -142,7 +142,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.sony \
+    camera.pantech \
     camera.msm8960 \
     libmmcamera_interface2 \
     libmmcamera_interface
@@ -209,4 +209,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=0
 
 # Include non-opensource parts
-$(call inherit-product, vendor/sony/blue-common/blue-common-vendor.mk)
+$(call inherit-product, vendor/pantech/blue-common/blue-common-vendor.mk)

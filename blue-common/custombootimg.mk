@@ -4,8 +4,8 @@ uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
 $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 	zcat $< > $@
 
-MKELF := device/sony/blue-common/tools/mkelf.py
-INITSH := device/sony/blue-common/combinedroot/init.sh
+MKELF := device/pantech/blue-common/tools/mkelf.py
+INITSH := device/pantech/blue-common/combinedroot/init.sh
 BOOTREC_DEVICE := $(PRODUCT_OUT)/recovery/bootrec-device
 
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
@@ -28,7 +28,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 
 	$(hide) $(MKBOOTFS) $(PRODUCT_OUT)/combinedroot/ > $(PRODUCT_OUT)/combinedroot.cpio
 	$(hide) cat $(PRODUCT_OUT)/combinedroot.cpio | gzip > $(PRODUCT_OUT)/combinedroot.fs
-	$(hide) python $(MKELF) -o $@ $(PRODUCT_OUT)/kernel@0x80208000 $(PRODUCT_OUT)/combinedroot.fs@$(SONY_FORCE_RAMDISK_ADDRESS),ramdisk vendor/sony/blue-common/proprietary/boot/RPM.bin@0x20000,rpm device/sony/blue-common/rootdir/cmdline.txt@cmdline
+	$(hide) python $(MKELF) -o $@ $(PRODUCT_OUT)/kernel@0x80208000 $(PRODUCT_OUT)/combinedroot.fs@$(SONY_FORCE_RAMDISK_ADDRESS),ramdisk vendor/pantech/blue-common/proprietary/boot/RPM.bin@0x20000,rpm device/pantech/blue-common/rootdir/cmdline.txt@cmdline
 
 	$(hide) ln -f $(INSTALLED_BOOTIMAGE_TARGET) $(PRODUCT_OUT)/boot.elf
 
@@ -37,6 +37,6 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(recovery_ramdisk) \
 	$(recovery_kernel)
 	@echo ----- Making recovery image ------
-	$(hide) python $(MKELF) -o $@ $(PRODUCT_OUT)/kernel@0x80208000 $(PRODUCT_OUT)/ramdisk-recovery.img@$(SONY_FORCE_RAMDISK_ADDRESS),ramdisk vendor/sony/blue-common/proprietary/boot/RPM.bin@0x20000,rpm device/sony/blue-common/rootdir/cmdline.txt@cmdline
+	$(hide) python $(MKELF) -o $@ $(PRODUCT_OUT)/kernel@0x80208000 $(PRODUCT_OUT)/ramdisk-recovery.img@$(SONY_FORCE_RAMDISK_ADDRESS),ramdisk vendor/pantech/blue-common/proprietary/boot/RPM.bin@0x20000,rpm device/pantech/blue-common/rootdir/cmdline.txt@cmdline
 	@echo ----- Made recovery image -------- $@
 #	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)

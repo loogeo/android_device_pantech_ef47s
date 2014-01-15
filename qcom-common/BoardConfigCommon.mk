@@ -47,7 +47,7 @@ TARGET_PROVIDES_CAMERA_HAL := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 ifeq ($(BOARD_EGL_CFG),)
-BOARD_EGL_CFG := device/sony/qcom-common/rootdir/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/pantech/qcom-common/rootdir/system/lib/egl/egl.cfg
 endif
 
 # RIL
@@ -77,7 +77,7 @@ ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 BOARD_SEPOLICY_DIRS += \
-    device/sony/qcom-common/sepolicy
+    device/pantech/qcom-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \

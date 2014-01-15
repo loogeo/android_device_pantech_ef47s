@@ -15,9 +15,9 @@
 #
 
 # Inherit the blue-common definitions
-$(call inherit-product, device/sony/blue-common/blue.mk)
+$(call inherit-product, device/pantech/blue-common/blue.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/sony/mint/overlay
+DEVICE_PACKAGE_OVERLAYS += device/pantech/ef47s/overlay
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -43,7 +43,7 @@ PRODUCT_COPY_FILES += \
 
 # USB function switching
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.sony.usb.rc:root/init.sony.usb.rc
+    $(LOCAL_PATH)/rootdir/init.pantech.usb.rc:root/init.pantech.usb.rc
 
 # Device specific part for two-stage boot
 PRODUCT_COPY_FILES += \
@@ -52,4 +52,4 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Include non-opensource parts
-$(call inherit-product, vendor/sony/mint/mint-vendor.mk)
+$(call inherit-product, vendor/pantech/ef47s/ef47s-vendor.mk)

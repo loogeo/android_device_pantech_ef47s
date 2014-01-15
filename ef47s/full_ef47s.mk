@@ -33,14 +33,14 @@ PRODUCT_PACKAGES := \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Common Sony Resources
-$(call inherit-product, device/sony/common/resources.mk)
+$(call inherit-product, device/pantech/common/resources.mk)
 
-# Inherit from mint device
-$(call inherit-product, device/sony/mint/mint.mk)
+# Inherit from ef47s device
+$(call inherit-product, device/pantech/ef47s/ef47s.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_mint
-PRODUCT_DEVICE := mint
+PRODUCT_NAME := full_ef47s
+PRODUCT_DEVICE := ef47s
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_MODEL := Xperia T

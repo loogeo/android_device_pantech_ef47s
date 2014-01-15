@@ -1,10 +1,9 @@
 #inherit from the common blue definitions
--include device/sony/blue-common/BoardConfigCommon.mk
+-include device/pantech/blue-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/mint/include
+TARGET_SPECIFIC_HEADER_PATH += device/pantech/ef47s/include
 
-#TARGET_KERNEL_CONFIG := cm_blue_mint_defconfig
-TARGET_KERNEL_CONFIG := msm8960_ef46l_tp30_user_defconfig
+TARGET_KERNEL_CONFIG := msm8960_ef47s_tp30_user_defconfig
 
 # Partition information
 BOARD_VOLD_MAX_PARTITIONS := 18
@@ -18,7 +17,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1056964608
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/mint/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/pantech/ef47s/bluetooth
 
 TARGET_LS_USE_ALS_NODE := true
 
@@ -26,9 +25,9 @@ TARGET_LS_USE_ALS_NODE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_OTA_ASSERT_DEVICE := LT30p,mint
+TARGET_OTA_ASSERT_DEVICE := LT30p,ef47s
 
-BOARD_HARDWARE_CLASS := device/sony/mint/cmhw
+BOARD_HARDWARE_CLASS := device/pantech/ef47s/cmhw
 
 # inherit from the proprietary version
--include vendor/sony/mint/BoardConfigVendor.mk
+-include vendor/pantech/ef47s/BoardConfigVendor.mk

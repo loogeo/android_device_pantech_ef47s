@@ -12,5 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_VENDOR := sony
+BOARD_VENDOR := pantech
 BOARD_RECOVERY_SWIPE := true
