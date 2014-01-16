@@ -23,6 +23,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/pantech/blue-common/include
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 TARGET_BOARD_PLATFORM := msm8960
+#for some reason setting this to SKY breaks libdumpstate
 BOARD_VENDOR_PLATFORM := blue
 
 # Architecture
