@@ -20,10 +20,6 @@
 
 TARGET_SPECIFIC_HEADER_PATH := device/pantech/blue-common/include
 
-# Kernel properties
-#TARGET_KERNEL_SOURCE := kernel/pantech/msm8x60
-TARGET_KERNEL_SOURCE := kernel/pantech/A830-JB-4-3
-
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 TARGET_BOARD_PLATFORM := msm8960
@@ -47,12 +43,12 @@ TARGET_KRAIT_BIONIC_BBTHRESH  := 64
 TARGET_KRAIT_BIONIC_PLDSIZE   := 64
 
 # Kernel information
-BOARD_KERNEL_CMDLINE := # This is ignored by pantech's bootloader
-BOARD_KERNEL_BASE := 0x80200000
-BOARD_RECOVERY_BASE := 0x80200000
-BOARD_KERNEL_PAGESIZE := 2048
-SONY_FORCE_RAMDISK_ADDRESS := 0x81900000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01700000
+#BOARD_RECOVERY_BASE := 0x80200000
+BOARD_KERNEL_BASE               := 0x80200000
+BOARD_KERNEL_CMDLINE            := console=ttyHSL0,115200,n8 androidboot.hardware=qcom androidboot.carrier=SKT-KOR user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 maxcpus=2 loglevel=0
+BOARD_KERNEL_PAGESIZE           := 2048
+BOARD_MKBOOTIMG_ARGS            := --ramdisk_offset 0x02200000
+
 
 # Dumpstate
 BOARD_LIB_DUMPSTATE := libdumpstate.pantech
