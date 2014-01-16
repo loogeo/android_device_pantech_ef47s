@@ -41,6 +41,6 @@ $(call inherit-product, device/pantech/ef47s/ef47s.mk)
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_ef47s
 PRODUCT_DEVICE := ef47s
-PRODUCT_BRAND := Sony
-PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia T
+PRODUCT_BRAND := SKY
+PRODUCT_MANUFACTURER := Pantech
+PRODUCT_MODEL := SKY_IM-A830S

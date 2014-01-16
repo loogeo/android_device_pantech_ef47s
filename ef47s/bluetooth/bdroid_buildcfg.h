@@ -17,7 +17,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Xperia T"
+#define BTM_DEF_LOCAL_NAME   "Vega_Racer 2"
 #define BTA_DISABLE_DELAY 1000 /* in milliseconds */
 
 #endif

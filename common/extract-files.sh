@@ -1,52 +1,40 @@
-#!/bin/bash
+#!/bin/sh
 
-VENDOR=sony
+VENDOR=pantech
+DEVICE=ef47s
 
-BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
+set -e
 
-while getopts ":nh" options
-do
-  case $options in
-    n ) NC=1 ;;
-    h ) echo "Usage: `basename $0` [OPTIONS] "
-        echo "  -n  No clenup"
-        echo "  -h  Show this help"
-        exit ;;
-    * ) ;;
-  esac
-done
-
-if [ "x$NC" != "x1" ]
-then
-  rm -rf $BASE/*
+if [ $# -eq 0 ]; then
+  SRC=adb
+else
+  if [ $# -eq 1 ]; then
+    SRC=$1
+  else
+    echo "$0: bad number of arguments"
+    echo ""
+    echo "usage: $0 [PATH_TO_EXPANDED_SYSTEM_DIRECTORY]"
+    echo ""
+    echo "If PATH_TO_EXPANDED_SYSTEM_DIRECTORY is not specified, blobs will be extracted from"
+    echo "the device using adb pull."
+    exit 1
+  fi
 fi
 
-for FILE in `cat ../$DEVICE/proprietary-files.txt | grep -v ^# | grep -v ^$`
-do
-  if [[ "$FILE" =~ ^obj:* ]]
-  then
-     FILE=`echo ${FILE##obj:}`
-  fi
+BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
+rm -rf $BASE/*
 
-  # Split the file from the destination (format is "file[:destination]")
-  OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-  FILE=${PARSING_ARRAY[0]}
-  DEST=${PARSING_ARRAY[1]}
-  if [ -z $DEST ]
-  then
-    DEST=$FILE
-  fi
+for FILE in `egrep -v '(^#|^$)' ../$DEVICE/proprietary-files.txt`; do
+  echo "Extracting /system/$FILE ..."
   DIR=`dirname $FILE`
-  if [ ! -d $BASE/$DIR ]
-  then
+  if [ ! -d $BASE/$DIR ]; then
     mkdir -p $BASE/$DIR
   fi
-  cp -rf ../../../vendor/sony/system/$FILE $BASE/$DEST
-  # if file dot not exist try destination
-  if [ "$?" != "0" ]
-  then
-    cp -rf ../../../vendor/sony/system/$DEST $BASE/$DEST
+  if [ "$SRC" = "adb" ]; then
+    adb pull /system/$FILE $BASE/$FILE
+  else
+    cp $SRC/$FILE $BASE/$FILE
   fi
 done
 
-exit 0
+./setup-makefiles.sh
